@@ -1,28 +1,12 @@
 const http = require('http');
 
-function router(routes) {
-  var paths = Object.keys(routes)
-  var regexes = paths.map(function(path) {
-    return new RegExp('^' + path + '$')
-  })
+const server = http.createServer(function (req, res) {
+	res.writeHead(200, {
+		'Content-Type': 'text/plain'
+	});
 
-  return function(req, res) {
-    var i = 0
-    while (!regexes[i].test(req.url)) i++
-    return routes[paths[i]].call(null, req, res)
-  }
-} 
-
-var server = http.createServer(router({
-  '/': function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end('Hello World!')
-  },
-  '/bye': function(req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end('Bye~')
-  }
-}))
+	res.end('Hello World');
+});
 
 server.listen(8000, function () {
 	console.log('Docker Demo with Node.js is running.');
