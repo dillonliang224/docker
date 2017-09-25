@@ -8,6 +8,6 @@ const server = http.createServer(function (req, res) {
 	res.end('Hello World');
 });
 
-server.listen(8000, function () {
+server.listen(8080, function () {
 	console.log('Docker Demo with Node.js is running.');
 });
