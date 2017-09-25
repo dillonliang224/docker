@@ -6,6 +6,6 @@ COPY package.json /usr/src/appp/
 RUN npm install
 COPY . /usr/src/appp 
 
-EXPOSE 80
+EXPOSE 8081
 
 ENTRYPOINT ["node", "server.js"]

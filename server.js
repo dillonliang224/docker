@@ -1,4 +1,5 @@
 const http = require('http');
+const PORT = 8081;
 
 const server = http.createServer(function (req, res) {
 	res.writeHead(200, {
@@ -8,6 +9,6 @@ const server = http.createServer(function (req, res) {
 	res.end('Hello World');
 });
 
-server.listen(8080, function () {
-	console.log('Docker Demo with Node.js is running.');
+server.listen(PORT, function () {
+	console.log('Docker Demo with Node.js is running in ' + PORT);
 });
